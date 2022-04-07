@@ -2,6 +2,7 @@
 
 REM Initialize variables.
 :initialize
+set sourceDir=..\src
 set iniFileName=initest.ini
 goto start
 
@@ -12,6 +13,7 @@ REM cls
 echo Are you ready?
 echo.
 pause
+cd %sourceDir%
 cls
 call :read
 cls
