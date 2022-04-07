@@ -3,6 +3,7 @@
 REM Initialize variables.
 :initialize
 set iniFileName=initest.ini
+goto start
 
 
 REM Script is supposed to start here.
@@ -11,36 +12,44 @@ REM cls
 echo Are you ready?
 echo.
 pause
+cls
+call :read
+cls
+call :write
+goto end
 
 
 REM Read from ini
 :read
-cls
-echo Reading from ini
+set keyName=myKey
+echo Reading %keyName% from %iniFileName%
+call iniread.bat %iniFileName% %keyName% value
 echo.
+echo Value: %value%
 
-set iniReadFileName=iniread.bat
-call %iniReadFileName%
-
-echo.
-echo Done.
-echo.
-pause
+call :finishMessage
+goto :eof
 
 
 REM Write to ini
 :write
-cls
 echo Writing to ini
 echo.
 
 set iniWriteFileName=iniwrite.bat
 call %iniWriteFileName%
 
+call :finishMessage
+goto :eof
+
+
+:finishMessage
 echo.
 echo Done.
 echo.
 pause
+goto :eof
 
 
+:end
 exit
