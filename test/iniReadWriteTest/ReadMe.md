@@ -1,0 +1,1 @@
+Run `test.bat` by double-clicking on it and follow instructions.
